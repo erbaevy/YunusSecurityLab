@@ -9,8 +9,10 @@
 ### 1. Установка Suricata
 ```bash
 sudo apt install suricata -y
-
 ```
+
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/1-install.png)
+
 ## 2. Обновление Suricata
 ```bash
 sudo apt install suricata-update -y
