@@ -97,6 +97,36 @@ alert tcp any any -> any any (msg:"Nmap Scan Detected"; flags:S; threshold:type 
 
 ```
 
+Подключение local.rules в Suricata config
+
+```bash
+sudo nano /etc/suricata/suricata.yaml
+
+```
+Проверка конфигурации 
+```bash
+sudo suricata -T -c /etc/suricata/suricata.yaml -v
+
+```
+Проверка логов 
+```bash
+sudo tail -f /var/log/suricata/fast.log
+
+```
+
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/8-practice.png)
+
+| Поле                 | Значение                                                    |
+|----------------------|-------------------------------------------------------------|
+| **Дата и время**     | 08/06/2025 - 16:24:16.843015                                 |
+| **Сигнатура**        | `Nmap Scan Detected`                                        |
+| **Классификация**    | `Attempted Information Leak` — попытка утечки информации    |
+| **Приоритет угрозы** | `2` (средний уровень)                                       |
+| **Тип трафика**      | `TCP`                                                       |
+| **Источник атаки**   | `192.168.56.101:59063` (Kali Linux)                         |
+| **Цель**             | `192.168.56.100:587` (Ubuntu с Suricata)                   |
+
+
 ## Вывод
 В ходе лабораторной работы: 
 
