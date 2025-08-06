@@ -1,10 +1,12 @@
-# Демонстрация IDS Suricata
+# Реализация системы обнаружения вторжений (IDS) Suricata: настройка, атаки, анализ и правила
 
 Этот проект демонстрирует практическое развёртывание и тестирование системы обнаружения вторжений (IDS) — [Suricata](https://suricata.io) в изолированной среде на базе **Ubuntu**.
 
 Проект включает в себя установку и обновление правил, запуск прослушивания трафика, симуляцию атаки и анализ сработавших сигнатур.
 
+
 ---
+
 
 ## Что я сделал
 
@@ -26,7 +28,7 @@ ip a
 sudo suricata -i enp0s3
 ```
 
-![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/3-start-listen.png)
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/2-start-listen.png)
 
 ### 3. Имитация вредоносной активности
 Для генерации сигнатуры атаки используется тестовый домен:
@@ -34,7 +36,7 @@ sudo suricata -i enp0s3
 ```bash
 curl http://testmyids.com
 ```
-![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/4-attack.png)
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/3-attack.png)
 
 
 ### 4. Анализ логов Suricata
@@ -44,7 +46,7 @@ curl http://testmyids.com
 tail -f /var/log/suricata/fast.log
 ```
 Зафиксированное событие:
-![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/5-check-logs.png)
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/4-check-logs.png)
 
 | Поле                 | Значение                                                    |
 | -------------------- | ----------------------------------------------------------- |
@@ -57,6 +59,9 @@ tail -f /var/log/suricata/fast.log
 | **Цель**             | `10.0.2.15:47994` (локальная виртуальная машина)            |
 
 Suricata успешно выполнила свою функцию по обнаружению угроз. Сигнатура id check returned root указывает на попытку возврата данных, характерных для несанкционированного доступа (root) — это демонстрационный индикатор атаки.
+
+### 5. Настройка среды
+Для изоляции трафика использована **внутренняя сеть (Internal Network)** между Kali и Ubuntu в VirtualBox:
 
 ## Вывод
 В ходе лабораторной работы: 
