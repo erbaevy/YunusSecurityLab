@@ -80,9 +80,22 @@ nmap -sS -p- 192.168.56.100
 
 ![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/6-nmap.png)
 
-Suricata в этот момент вела мониторинг сетевого интерфейса. Однако alert на порт-сканирование не был зафиксирован, что является ожидаемым поведением: Suricata по умолчанию не реагирует на TCP SYN-скан без подключения, если нет соответствующей сигнатуры.
+Suricata в этот момент вела мониторинг сетевого интерфейса. Однако Alert на порт-сканирование не был зафиксирован, что является нормой: Suricata по умолчанию не реагирует на TCP SYN-скан без подключения, если нет соответствующей сигнатуры.
 
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/7-ps.png)
 
+### 7. Создание пользовательского правила (signature), чтобы Suricata начала фиксировать Nmap-сканирование.
+
+Создание файла local.rules:
+```bash
+sudo nano /etc/suricata/rules/local.rules
+
+```
+Добавление правила:
+```bash
+alert tcp any any -> any any (msg:"Nmap Scan Detected"; flags:S; threshold:type both, track by_src, count 10, seconds 10; classtype:attempted-recon; sid:1000001; rev:1;)
+
+```
 
 ## Вывод
 В ходе лабораторной работы: 
