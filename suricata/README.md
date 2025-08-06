@@ -2,29 +2,23 @@
 
 Этот проект демонстрирует практическое развёртывание и тестирование системы обнаружения вторжений (IDS) — [Suricata](https://suricata.io) в изолированной среде на базе **Ubuntu**.
 
-Проект включает в себя установку, обновление правил, запуск прослушивания трафика, симуляцию атаки и анализ сработавших сигнатур.
+Проект включает в себя установку и обновление правил, запуск прослушивания трафика, симуляцию атаки и анализ сработавших сигнатур.
 
 ---
 
 ## Что я сделал
 
-### 1. Установка пакета из репозитория APT:
+### 1. Установка пакета из репозитория APT и обновление сигнартур:
+
+Используется встроенный механизм suricata-update для получения актуальных правил:
 ```bash
 sudo apt install suricata -y
-```
-
-![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/1-install.png)
-
-## 2. Обновление сигнатур
-Используется встроенный механизм suricata-update для получения актуальных правил:
-
-```bash
 sudo apt install suricata-update -y
 ```
 
-![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/2-update.png)
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/1-install-update.png)
 
-### 3. Запуск Suricata в режиме анализа трафика
+### 2. Запуск Suricata в режиме анализа трафика
 Определение интерфейса и запуск IDS в live-режиме:
 
 ```bash
@@ -34,7 +28,7 @@ sudo suricata -i enp0s3
 
 ![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/3-start-listen.png)
 
-### 4. Имитация вредоносной активности
+### 3. Имитация вредоносной активности
 Для генерации сигнатуры атаки используется тестовый домен:
 
 ```bash
@@ -43,7 +37,7 @@ curl http://testmyids.com
 ![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/4-attack.png)
 
 
-### 5. Анализ логов Suricata
+### 4. Анализ логов Suricata
 После имитации атаки с использованием сайта http://testmyids.com, Suricata успешно зафиксировала подозрительный сетевой трафик. Для анализа срабатывания использовалась команда:
 
 ```bash
