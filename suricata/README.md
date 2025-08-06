@@ -61,7 +61,17 @@ tail -f /var/log/suricata/fast.log
 Suricata успешно выполнила свою функцию по обнаружению угроз. Сигнатура id check returned root указывает на попытку возврата данных, характерных для несанкционированного доступа (root) — это демонстрационный индикатор атаки.
 
 ### 5. Настройка среды
+
 Для изоляции трафика использована **внутренняя сеть (Internal Network)** между Kali и Ubuntu в VirtualBox:
+
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/5-kali-network.png)
+
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/suricata/screenshots/5-ubuntu-network.png)
+
+### 6. Проводим сканирование портов с Kali на Ubuntu
+```bash
+nmap -sS -p- 192.168.56.100
+```
 
 ## Вывод
 В ходе лабораторной работы: 
