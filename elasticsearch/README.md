@@ -3,14 +3,13 @@
 ## Содержание
 
 - [1. Установка и запуск Elasticsearch](#1-установка-и-запуск-Elasticsearch-на-windows)
-- [1.1. Интерфейс и авторизация Elasticsearch](#4-анализ-логов-suricata)
-- [2.3. Запуск Kibana](#5-настройка-среды)
-- [2.4. Создание и ввод Enrollment Token](#6-имитация-разведывательной-активности-port-scanning)
+- [2. Интерфейс и запуск Kibana](#2-Установка-и-запуск-Kibana-на-Windows)
+- [3. Установка Filebeat](#3-Установка-Filebeat)
+- [4. Данные в Discover](#4-Первые-данные-в-Discover)
 - [2.5. Установка Filebeat как сервиса](#7-создание-signature-чтобы-Suricata-начала-фиксировать-Nmap-сканирование)
-- [2.6. Первые данные в Discover](#7-создание-signature-чтобы-Suricata-начала-фиксировать-Nmap-сканирование)
 - [Вывод](#вывод)
-- 4. Скриншоты
-- [Инструменты](#проект-выполнен-с-использованием-следующих-инструментов-и-технологий)
+- [Скриншоты](#скриншоты)
+
 
 ## Цель проекта
 
@@ -89,7 +88,7 @@ elasticsearch-create-enrollment-token -s kibana
 
 ![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/8-authorization.png)
 
-### 3. Установка Filebeat как сервиса
+### 3. Установка Filebeat
 
 Filebeat используется для автоматического сбора событий Windows и отправки их в Elasticsearch.
 
