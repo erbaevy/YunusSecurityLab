@@ -1,8 +1,8 @@
-# Мониторинг безопасности Windows с помощью Filebeat + Elasticsearch + Kibana
+# Мониторинг безопасности Windows с помощью Elasticsearch + Kibana + Filebeat
 
 ## Цель проекта
 
-Показать endpoint‑уровень: сбор журналов Windows без стороннего IDS.
+Показать endpoint‑уровень: сбор журналов Windows.
 
 Научиться работать с winlog‑входом в Filebeat, индексными шаблонами и Saved Objects в Kibana.
 
@@ -10,7 +10,7 @@
 
 ## Ход работы
 
-### 1. Установка Elasticsearch и Kibana на Windows:
+### 1. Установка и запуск Elasticsearch на Windows:
 
 Elasticsearch требует Java 17+. Поэтому мы скачиваем Java с сайта [OpenJDK 17 (Adoptium)](https://adoptium.net/temurin/releases/?version=17) и проверяем через команду: 
 ```bash
@@ -31,3 +31,14 @@ java-version
 Далее при первом запуске генерируется пароль и выводится прямо в консоли в ./elasticsearch.bat оттуда сохраняем Логин (обычно Elastic) и сгенерировшийся пароль и при входе у нас появляется такой интерфейс. 
 
 ![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/3-localhost.png)
+
+### 2. Установка и запуск Kibana на Windows:
+
+Скачиваем Kibana через сайт [Kibana](https://www.elastic.co/downloads/kibana) и запускаем через команду
+
+```bash
+.\kibana.bat
+```
+
+По умолчанию откроется интерфейс на: http://localhost:5601 важно чтобы Elasticsearch был запущен
+
