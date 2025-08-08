@@ -30,4 +30,4 @@ java-version
 
 Далее при первом запуске генерируется пароль и выводится прямо в консоли в ./elasticsearch.bat оттуда сохраняем Логин (обычно Elastic) и сгенерировшийся пароль и при входе у нас появляется такой интерфейс. 
 
-Скриншот
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/3-localhost.png)
