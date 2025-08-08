@@ -1,5 +1,6 @@
 # Мониторинг безопасности Windows с помощью Elasticsearch, Kibana и Filebeat
 
+
 ## Цель проекта
 
 Продемонстрировать построение системы мониторинга безопасности на endpoint-уровне с использованием Elastic Stack.
@@ -21,6 +22,7 @@ java-version
 
 3. Запустить Elasticsearch:
 ```bash
+cd C:\elastic\bin
 .\elasticsearch.bat
 
 ```
@@ -49,6 +51,7 @@ https://localhost:9200
 2. Запустить
 
 ```bash
+cd C:\kibana\bin
 .\kibana.bat
 
 ```
@@ -56,6 +59,11 @@ https://localhost:9200
 ![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/4-kibana-launch.png)
 
 3. Создать Enrollment Token для подключения Kibana к Elasticsearch:
+   
+```bash
+elasticsearch-create-enrollment-token -s kibana
+
+```
 
 ![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/5-create-token.png)
 
@@ -75,7 +83,19 @@ https://localhost:9200
 Filebeat используется для автоматического сбора событий Windows и отправки их в Elasticsearch.
 
 1. Установить Filebeat.
+
+```bash
+.\install-service-filebeat.ps1
+```
+
 2. Запустить установку как Windows Service:
+
+```bash
+Start-Service filebeat
+
+Get-Service filebeat
+
+```
 
 ![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/9-filebeat-install.png)
 
