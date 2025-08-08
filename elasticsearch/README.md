@@ -21,3 +21,13 @@ java-version
 ```bash
 .\elasticsearch.bat
 ```
+
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/1-elastic-launch.png)
+
+Он будет у нас доступен по адресу: https:localhost:9000. 
+
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/2-elastic-localhost.png)
+
+Далее при первом запуске генерируется пароль и выводится прямо в консоли в ./elasticsearch.bat оттуда сохраняем Логин (обычно Elastic) и сгенерировшийся пароль и при входе у нас появляется такой интерфейс. 
+
+Скриншот
