@@ -39,6 +39,44 @@ java-version
 ```bash
 .\kibana.bat
 ```
-
 По умолчанию откроется интерфейс на: http://localhost:5601 важно чтобы Elasticsearch был запущен
+
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/4-kibana-launch.png)
+
+Далее нам нужно создать Enrollment Token для первичного подключения Kibana к кластеру Elasticsearch.
+
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/5-create-token.png)
+
+И далее мы подключаем Kibana к кластеру для работы в одной среде.
+
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/6-kibana-token.png)
+
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/7-kibana-localhost.png)
+
+Далее нам нужно заполнить поля логина и пароля для аутентификации и доступа к инструментам визуализации и анализа.
+
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/8-authorization.png)
+
+### 3. Установка Filebeat как сервиса
+
+Нам нужно установить Filebeat и запустить как Windows Service для автоматического сбора логов.
+
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/9-filebeat-install.png)
+
+### 4. Первые данные в Discover
+
+Подтверждает, что логи успешно собираются и индексируются в Elasticsearch.
+
+![123](https://github.com/erbaevy/YunusSecurityLab/blob/main/elasticsearch/screenshots/10-filebeat-kibana-elastic.png)
+
+
+
+
+
+
+
+
+
+
+
 
